@@ -24,13 +24,15 @@ const ANCHO_COMIDA = 50;
 // iniciar grafica con variables iniciales
 
  function graficarGato (){
-    ctx.fillStyle = "green";
-    ctx.fillRect(gatoX,gatoY, ANCHO_GATO,ALTO_GATO);
+    //ctx.fillStyle = "green";
+    //ctx.fillRect(gatoX,gatoY, ANCHO_GATO,ALTO_GATO);
+   graficarRectangulo(gatoX,gatoY,ANCHO_GATO,ALTO_GATO,"green")
  }
  function graficarComida(){
-    ctx.fillStyle = "red";
-    ctx.fillRect(comidaX,comidaY, ANCHO_COMIDA,ALTO_COMIDA);
+    //ctx.fillStyle = "red";
+    //ctx.fillRect(comidaX,comidaY, ANCHO_COMIDA,ALTO_COMIDA);
     // ctx.fillRect(canvas.width-ANCHO_COMIDA,0, ANCHO_COMIDA,ALTO_COMIDA);
+   graficarRectangulo(comidaX,comidaY,ANCHO_COMIDA,ALTO_COMIDA,"red")
  }
 // iniciar grafica gato centrado  y comida a la derecha
  function iniciarJuego(){
@@ -43,3 +45,10 @@ const ANCHO_COMIDA = 50;
     graficarGato ();
     graficarComida();
  }
+ // crear funcion graficar rectangulo que recibe 5 parametros
+  function graficarRectangulo(x,y,ancho,alto,color){
+   ctx.fillStyle = color;
+   ctx.fillRect (x,y,ancho, alto);
+  }
+
+  
