@@ -2,21 +2,21 @@ let canvas = document.getElementById("areaJuego");
 let ctx = canvas.getContext("2d");
 
 //variables gato rectangulo
-let alturaRect = 50;
-let largoRect = 100;
+//let alturaRect = 50;
+//let largoRect = 100;
 
-let x = canvas.width/2 - largoRect/2;
-let y = canvas.height/2 - alturaRect/2
+//let x = canvas.width/2 - largoRect/2;
+//let y = canvas.height/2 - alturaRect/2
 
 //variables comida cuadrado
-let a = 50
+//let a = 50
 
-// iniciar variables en cero
+// iniciar variables en cero gato y comida
 let gatoX = 0;
 let gatoY = 0;
 let comidaX = 0;
 let comidaY = 0;
-// variables consantes
+// variables consantes gato es rectangulo y comida es cuadrado
 const ALTO_GATO = 50;
 const ANCHO_GATO = 100;
 const  ALTO_COMIDA = 50;
@@ -45,10 +45,15 @@ const ANCHO_COMIDA = 50;
     graficarGato ();
     graficarComida();
  }
- // crear funcion graficar rectangulo que recibe 5 parametros
-  function graficarRectangulo(x,y,ancho,alto,color){
-   ctx.fillStyle = color;
-   ctx.fillRect (x,y,ancho, alto);
-  }
-
-  
+ 
+//1 crear funcion limpiar canvas
+function limpiarCanvas (){
+   ctx.clearRect(0,0,canvas.width,canvas.height);
+}
+//2 funcion mover izquierda gato 10px`
+function moverIzquierda (){
+   gatoX = gatoX -10;
+   limpiarCanvas();
+   graficarGato();
+   graficarComida();
+}
