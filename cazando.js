@@ -57,3 +57,25 @@ function moverIzquierda (){
    graficarGato();
    graficarComida();
 }
+//3.1 funcion mover derecha gato 10px
+function moverDerecha (){
+   gatoX = gatoX +10;
+   redibujarEscena();
+}
+//3.2 funcion mover arriba gato 10 px
+function moverArriba (){
+   gatoY = gatoY -10;
+   redibujarEscena();
+}
+//3.3 funcion mover abajo gato 10 px
+function moverAbajo (){
+   gatoY = gatoY +10;
+   redibujarEscena();
+}
+//funcion redibujar escena
+function redibujarEscena(){
+   limpiarCanvas();
+   graficarGato();
+   graficarComida();
+
+}
