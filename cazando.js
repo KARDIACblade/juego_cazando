@@ -77,5 +77,13 @@ function redibujarEscena(){
    limpiarCanvas();
    graficarGato();
    graficarComida();
+   detectarColision();
 
+}
+// parte 4.1 detectar colision
+function detectarColision (){
+   if (gatoX+ANCHO_GATO>comidaX && comidaX+ANCHO_COMIDA>gatoX 
+      && gatoY+ALTO_GATO>comidaY && comidaY+ALTO_COMIDA>gatoY){
+   alert("gato toca la comida")
+      }
 }
