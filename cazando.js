@@ -1,38 +1,24 @@
 let canvas = document.getElementById("areaJuego");
 let ctx = canvas.getContext("2d");
 
-//variables gato rectangulo
-//let alturaRect = 50;
-//let largoRect = 100;
 
-//let x = canvas.width/2 - largoRect/2;
-//let y = canvas.height/2 - alturaRect/2
-
-//variables comida cuadrado
-//let a = 50
-
-// iniciar variables en cero gato y comida
 let gatoX = 0;
 let gatoY = 0;
 let comidaX = 0;
 let comidaY = 0;
+let puntaje = 0;
 // variables consantes gato es rectangulo y comida es cuadrado
 const ALTO_GATO = 50;
 const ANCHO_GATO = 100;
 const  ALTO_COMIDA = 50;
 const ANCHO_COMIDA = 50;
-// iniciar grafica con variables iniciales
+
 
  function graficarGato (){
-    //ctx.fillStyle = "green";
-    //ctx.fillRect(gatoX,gatoY, ANCHO_GATO,ALTO_GATO);
-   graficarRectangulo(gatoX,gatoY,ANCHO_GATO,ALTO_GATO,"green")
+ graficarRectangulo(gatoX,gatoY,ANCHO_GATO,ALTO_GATO,"green")
  }
  function graficarComida(){
-    //ctx.fillStyle = "red";
-    //ctx.fillRect(comidaX,comidaY, ANCHO_COMIDA,ALTO_COMIDA);
-    // ctx.fillRect(canvas.width-ANCHO_COMIDA,0, ANCHO_COMIDA,ALTO_COMIDA);
-   graficarRectangulo(comidaX,comidaY,ANCHO_COMIDA,ALTO_COMIDA,"red")
+graficarRectangulo(comidaX,comidaY,ANCHO_COMIDA,ALTO_COMIDA,"red")
  }
 // iniciar grafica gato centrado  y comida a la derecha
  function iniciarJuego(){
@@ -53,9 +39,7 @@ function limpiarCanvas (){
 //2 funcion mover izquierda gato 10px`
 function moverIzquierda (){
    gatoX = gatoX -10;
-   limpiarCanvas();
-   graficarGato();
-   graficarComida();
+   redibujarEscena();
 }
 //3.1 funcion mover derecha gato 10px
 function moverDerecha (){
@@ -84,6 +68,19 @@ function redibujarEscena(){
 function detectarColision (){
    if (gatoX+ANCHO_GATO>comidaX && comidaX+ANCHO_COMIDA>gatoX 
       && gatoY+ALTO_GATO>comidaY && comidaY+ALTO_COMIDA>gatoY){
-   alert("gato toca la comida")
+   //alert("gato toca la comida")
+   // llamo a la funcion aparecer comida
+   aparecerComida();
+   puntaje = puntaje+1;
+   mostrarEnSpan("puntos",puntaje);
       }
+}
+// usando funcion aleatorio, nueva funcion aparecerComida cambia de ubicacion
+function aparecerComida (){
+    comidaX=generarAleatorio(0,canvas.width-ANCHO_COMIDA);
+    comidaY=canvas.height-ALTO_COMIDA;
+    //necesito que grafique de nuevo
+    limpiarCanvas();
+    graficarGato();
+    graficarComida();
 }
