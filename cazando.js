@@ -7,6 +7,8 @@ let gatoY = 0;
 let comidaX = 0;
 let comidaY = 0;
 let puntaje = 0;
+let tiempo = 10;
+let intervalo;
 // variables consantes gato es rectangulo y comida es cuadrado
 const ALTO_GATO = 50;
 const ANCHO_GATO = 100;
@@ -28,8 +30,13 @@ graficarRectangulo(comidaX,comidaY,ANCHO_COMIDA,ALTO_COMIDA,"red")
  comidaX=canvas.width-ANCHO_COMIDA;
  comidaY=canvas.height-ALTO_COMIDA;
 
+ limpiarCanvas();
+
     graficarGato ();
     graficarComida();
+
+   intervalo=setInterval(restarTiempo,1000);
+
  }
  
 //1 crear funcion limpiar canvas
@@ -74,13 +81,36 @@ function detectarColision (){
    puntaje = puntaje+1;
    mostrarEnSpan("puntos",puntaje);
       }
+      if(puntaje==6){
+         alert("GANADOR")
+           clearInterval(intervalo);
+
+      }
 }
 // usando funcion aleatorio, nueva funcion aparecerComida cambia de ubicacion
 function aparecerComida (){
     comidaX=generarAleatorio(0,canvas.width-ANCHO_COMIDA);
-    comidaY=canvas.height-ALTO_COMIDA;
+    comidaY=generarAleatorio(0,canvas.height-ALTO_COMIDA);
     //necesito que grafique de nuevo
     limpiarCanvas();
     graficarGato();
     graficarComida();
+}
+//cuenta regresiva
+function restarTiempo(){
+   tiempo = tiempo-1;
+   mostrarEnSpan("tiempo",tiempo);
+   if(tiempo == 0){
+      alert("GAME OVER")
+      clearInterval(intervalo);
+   }
+   
+}
+function reiniciar(){
+   puntaje=0;
+   tiempo=10;
+   mostrarEnSpan("puntos",puntaje);
+   mostrarEnSpan("tiempo",tiempo);
+   clearInterval(intervalo);
+   iniciarJuego();
 }
