@@ -1,42 +1,258 @@
-body {
-  text-align: center;
-  font-family: Arial, sans-serif;
-  background: #f0f0f0;
+/* ==========================================================================
+   RESET & VARIABLES GLOBALES
+   ========================================================================== */
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-dark: #0a0e17;
+  --panel-bg: rgba(18, 26, 43, 0.85);
+  --primary-accent: #00f0ff;
+  --secondary-accent: #ff0055;
+  --gold-accent: #ffd700;
+  --text-main: #f0f4f8;
+  --text-muted: #8a99ad;
+  --font-game: 'Orbitron', sans-serif;
+  --font-ui: 'Rajdhani', sans-serif;
+  --glow-cyan: 0 0 15px rgba(0, 240, 255, 0.4);
+  --glow-red: 0 0 15px rgba(255, 0, 85, 0.4);
+}
+
+body {
+  background: radial-gradient(circle at center, #162032 0%, var(--bg-dark) 100%);
+  color: var(--text-main);
+  font-family: var(--font-ui);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 20px;
 }
 
-h1 {
-  margin-bottom: 5px;
+/* ==========================================================================
+   CONTENEDOR Y ESTRUCTURA GENERAL
+   ========================================================================== */
+.game-wrapper {
+  background: var(--panel-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  border-radius: 20px;
+  padding: 25px 30px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 0 2px rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 580px;
+  width: 100%;
 }
 
+/* Encabezado */
+.game-header {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.game-title {
+  font-family: var(--font-game);
+  font-size: 2.2rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  background: linear-gradient(135deg, #ffffff 0%, var(--primary-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+}
+
+.author {
+  color: var(--text-muted);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.author span {
+  color: var(--primary-accent);
+}
+
+/* ==========================================================================
+   PANEL DE MÉTRICAS (PUNTOS Y TIEMPO)
+   ========================================================================== */
 .panel {
-  margin: 15px 0;
-  font-size: 18px;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 20px;
+  gap: 15px;
+}
+
+.stat-card {
+  background: rgba(10, 14, 23, 0.8);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  border-radius: 12px;
+  padding: 10px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 1.5px;
+  font-weight: 700;
+}
+
+.stat-value {
+  font-family: var(--font-game);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--gold-accent);
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+}
+
+/* ==========================================================================
+   ÁREA DE JUEGO (CANVAS & MENSAJES)
+   ========================================================================== */
+.canvas-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+canvas#areaJuego {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 3px solid var(--primary-accent);
+  box-shadow: var(--glow-cyan), 0 10px 30px rgba(0, 0, 0, 0.5);
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+}
+
+/* Mensaje emergente o final de partida */
+#mensaje {
+  font-family: var(--font-game);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--secondary-accent);
+  text-shadow: var(--glow-red);
+  margin-top: 15px;
+  min-height: 28px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   CONTROLES D-PAD Y BOTONES
+   ========================================================================== */
+.controles {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.dpad-row {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 8px;
 }
 
-canvas {
-  background: white;
-  border: 2px solid black;
-}
-
-.controles {
-  margin-top: 20px;
-}
-
-button {
-  margin: 5px;
-  padding: 10px 16px;
-  font-size: 18px;
+.btn-dpad {
+  background: linear-gradient(145deg, #1f2d42, #121a28);
+  color: var(--primary-accent);
+  border: 1px solid rgba(0, 240, 255, 0.4);
+  border-radius: 10px;
+  width: 52px;
+  height: 52px;
+  font-size: 1.4rem;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.15s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
-#mensaje {
-  font-size: 20px;
-  font-weight: bold;
-  color: darkred;
-  margin-top: 15px;
+.btn-dpad:hover {
+  background: var(--primary-accent);
+  color: var(--bg-dark);
+  box-shadow: var(--glow-cyan);
+  transform: translateY(-2px);
+}
+
+.btn-dpad:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+.actions-container {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.btn-reset {
+  width: 100%;
+  background: linear-gradient(135deg, var(--secondary-accent) 0%, #a00035 100%);
+  color: #ffffff;
+  font-family: var(--font-game);
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: var(--glow-red);
+  transition: all 0.2s ease;
+}
+
+.btn-reset:hover {
+  filter: brightness(1.2);
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(255, 0, 85, 0.7);
+}
+
+.btn-reset:active {
+  transform: translateY(1px);
+}
+
+/* Focus accesible para teclado */
+button:focus-visible {
+  outline: 2px solid var(--primary-accent);
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   ADAPTABILIDAD RESPONSIVE (MÓVILES Y TABLETS)
+   ========================================================================== */
+@media (max-width: 550px) {
+  .game-wrapper {
+    padding: 18px 15px;
+    border-radius: 15px;
+  }
+
+  .game-title {
+    font-size: 1.7rem;
+  }
+
+  .stat-value {
+    font-size: 1.4rem;
+  }
+
+  .btn-dpad {
+    width: 46px;
+    height: 46px;
+    font-size: 1.2rem;
+  }
 }

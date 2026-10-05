@@ -1,35 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+  <meta charset="UTF-8"> <!-- Línea agregada: Soporte de caracteres especiales -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Línea agregada: Adaptabilidad a móviles y tablets -->
   <title>Juego Cazando</title>
+  <!-- Fuentes modernas desde Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="cazando.css"/>
   <script src="utilitarios.js"></script>
-
 </head>
-<body onload ="iniciarJuego()">
+<body onload="iniciarJuego()">
 
-  <h1>Juego Cazando</h1>
-  <p>Autor: Bladimir Paillacho </p>
-  <canvas id ="areaJuego" width="500" height="500"></canvas>
+  <!-- Línea modificada: Se creó un contenedor global 'game-wrapper' para centrar el juego en pantalla -->
+  <div class="game-wrapper">
 
+    <!-- Línea modificada: Se envolvió el título y autor en un encabezado visual -->
+    <header class="game-header">
+      <h1 class="game-title">Juego Cazando</h1>
+      <p class="author">Autor: <span>Bladimir Paillacho</span></p>
+    </header>
 
-  <div class="controles">
-    <button onclick="moverArriba()">⬆</button>
-    <br>
-    <button onclick="moverIzquierda()">⬅</button>
-    <button onclick="moverAbajo()">⬇</button>
-    <button onclick="moverDerecha()">➡</button>
-
+    <!-- Línea modificada: Se colocó el panel de estadísticas antes del canvas para mejor jerarquía visual -->
+    <div class="panel">
+      <div class="stat-card">
+        <span class="stat-label">Puntos</span>
+        <span id="puntos" class="stat-value">0</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Tiempo</span>
+        <span id="tiempo" class="stat-value">10</span>
+      </div>
     </div>
 
-    <button onclick="reiniciar()">reiniciar</button>
+    <!-- Línea modificada: Se envolvió el canvas en un marco cibernético sin alterar sus atributos ID, width ni height -->
+    <main class="canvas-container">
+      <canvas id="areaJuego" width="500" height="500"></canvas>
+      <p id="mensaje"></p>
+    </main>
 
-  <div class="panel">
-    <span>Puntos: <span id="puntos">0</span></span>
-    <span>Tiempo: <span id="tiempo">10</span></span>
-  </div>
+    <!-- Controles direccionales (Mantiene exactos todos los botones y funciones onclick) -->
+    <div class="controles">
+      <div class="dpad-row">
+        <button onclick="moverArriba()" class="btn-dpad">⬆</button>
+      </div>
+      <div class="dpad-row">
+        <button onclick="moverIzquierda()" class="btn-dpad">⬅</button>
+        <button onclick="moverAbajo()" class="btn-dpad">⬇</button>
+        <button onclick="moverDerecha()" class="btn-dpad">➡</button>
+      </div>
+    </div>
 
-  <p id="mensaje"></p>
+    <!-- Botón de Reinicio (Mantiene idéntico el evento onclick) -->
+    <div class="actions-container">
+      <button onclick="reiniciar()" class="btn-reset">Reiniciar</button>
+    </div>
+
+  </div> <!-- Fin de game-wrapper -->
+
   <script src="cazando.js"></script>
 </body>
 </html>
