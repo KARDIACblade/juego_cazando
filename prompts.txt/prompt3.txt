@@ -1,0 +1,7 @@
+En mi cazando.css, el fondo del body (img/fondo.jpg) se ve borroso y mal distribuido. 
+Solo puedes modificar CSS (no HTML estructural, no JavaScript, ni los id, onclick o atributos del canvas).
+Ajusta el fondo para que se vea nítido y mejor distribuido: 
+para que la imagen se vea clara pero el panel del juego siga siendo legible.
+- Aplica image-rendering: auto y evita transform: scale() sobre el fondo. - //recomendacion de la ia en el prompt
+ En pantallas móviles (max-width: 550px) usa background-position: center top y deja background-attachment: scroll, para que no se recorte raro. Mantén el estilo cibernético, el borde cian del canvas y el diseño responsive.
+  Y las imágenes de logo.jpg y gato.jpg se vean mas grandes y mejor distribuidos sus espacios.  

@@ -1,0 +1,6 @@
+
+Tengo un juego web llamado "Cazando" con index.html y cazando.css. Actúa como un diseñador UI/UX especializado en videojuegos web. Solo puedes modificar HTML y CSS; no debes modificar los id, los onclick ni el canvas (id="areaJuego", 500x500). Agrega: 
+1) una imagen de fondo en el body usando la imagen ciudad.jpg (background-size: cover, centrada, fija, con una capa oscura encima para que se lea el texto)
+2) la imagen logo.jpg en el encabezado parte lateral derecha, junto al título. Mantén el estilo cibernético actual y que siga siendo responsive.
+3) la imagen gato.jpg en el encabezado parte lateral izquierda
+4) Cambia el fondo blanco del canvas, Dentro del canvas se dibujan dos rectángulos: uno verde (el jugador) y uno rojo (la presa), así que el fondo debe ser lo bastante oscuro u homogéneo para que ambos colores se distingan bien. Mantén el borde cian con brillo, las esquinas redondeadas y que siga siendo responsive.
