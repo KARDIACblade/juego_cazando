@@ -22,11 +22,12 @@
 }
 
 body {
-  background-image: linear-gradient(rgba(10, 14, 23, 0.75), rgba(10, 14, 23, 0.75)), url('ciudad.jpg');
+  background-image: linear-gradient(rgba(10, 14, 23, 0.35), rgba(10, 14, 23, 0.35)), url('ciudad.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  image-rendering: auto;
   color: var(--text-main);
   font-family: var(--font-ui);
   min-height: 100vh;
@@ -41,7 +42,7 @@ body {
    ========================================================================== */
 .game-wrapper {
   background: var(--panel-bg);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(4px);
   border: 1px solid rgba(0, 240, 255, 0.2);
   border-radius: 20px;
   padding: 25px 30px;
@@ -49,7 +50,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 580px;
+  max-width: 640px;
   width: 100%;
 }
 
@@ -59,8 +60,8 @@ body {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 15px;
-  gap: 10px;
+  margin-bottom: 25px;
+  gap: 20px;
 }
 
 .header-title-container {
@@ -69,12 +70,13 @@ body {
 }
 
 .header-img {
-  width: 55px;
-  height: 55px;
-  object-fit: cover;
-  border-radius: 50%;
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  border-radius: 12%;
   border: 2px solid var(--primary-accent);
   box-shadow: var(--glow-cyan);
+  flex-shrink: 0;
 }
 
 .game-title {
@@ -258,20 +260,29 @@ button:focus-visible {
 
 /* ==========================================================================
    ADAPTABILIDAD RESPONSIVE (MÓVILES Y TABLETS)
-   ========================================================================== */
-@media (max-width: 550px) {
-  .game-wrapper {
+   ========================================================================== */   
+  @media (max-width: 550px) {
+    body {
+      background-position: center top;
+      background-attachment: scroll;
+    }
+
+    .game-wrapper {
     padding: 18px 15px;
     border-radius: 15px;
   }
 
+  .game-header{
+    gap:8px;
+  }
+  
   .game-title {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   .header-img {
-    width: 42px;
-    height: 42px;
+    width: 70px;
+    height: 70px;
   }
 
   .stat-value {
