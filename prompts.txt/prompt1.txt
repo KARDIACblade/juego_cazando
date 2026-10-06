@@ -1,0 +1,50 @@
+prompt1.txt : juego cazando
+
+Actúa como un diseñador UI/UX especializado en videojuegos web.
+En el nuevo código indica las líneas de código donde se realizaron los cambios.
+Quiero que mejores únicamente la apariencia visual de este juego, haciendo que se vea más moderno, atractivo, profesional y agradable para el usuario.
+HTML
+•	Puedes modificar la estructura visual del HTML únicamente cuando sea necesario para mejorar el diseño.
+•	NO cambies, elimines ni renombres ningún id existente.
+•	Mantén todos los id exactamente iguales, porque JavaScript depende de ellos.
+•	No elimines elementos que puedan ser utilizados por JavaScript.
+•	No cambies la lógica ni el funcionamiento del juego.
+•	No agregues funcionalidades nuevas.
+CSS
+Rediseña el CSS para mejorar:
+•	Colores y combinación de la paleta.
+•	Tipografía y jerarquía visual.
+•	Botones, incluyendo efectos hover, active y focus.
+•	Bordes, sombras, fondos y gradientes.
+•	Espaciado, alineación y distribución de los elementos.
+•	Paneles, tarjetas y áreas del juego.
+•	Iconos o elementos visuales cuando sean apropiados.
+•	Animaciones y transiciones sutiles, sin afectar el funcionamiento.
+•	Diseño responsive para computadora, tablet y celular.
+Estilo visual
+Utiliza un diseño moderno de videojuego web, con una interfaz limpia, llamativa y coherente. Evita sobrecargar la pantalla con demasiados colores, sombras o efectos.
+Mantén una jerarquía visual clara para que el jugador pueda identificar rápidamente:
+1.	Título del juego.
+2.	Información importante.
+3.	Área principal del juego.
+4.	Botones y controles.
+5.	Resultado o información secundaria.
+Restricciones importantes
+•	NO modifiques JavaScript.
+•	NO cambies ningún id.
+•	NO cambies los nombres de las clases existentes si eso puede afectar JavaScript.
+•	NO cambies los atributos necesarios para el funcionamiento del juego.
+•	NO elimines funcionalidades existentes.
+•	NO cambies textos salvo que sea estrictamente necesario para mejorar la interfaz.
+•	Mantén HTML y CSS en archivos separados.
+•	No coloques CSS dentro del HTML mediante style="" ni <style>.
+•	No coloques JavaScript dentro del HTML.
+•	Conserva las rutas existentes de imágenes, scripts y otros archivos.
+Entrega
+Devuélveme:
+1.	El HTML completo actualizado.
+2.	El CSS completo actualizado.
+3.	Cada uno en su propio bloque de código.
+4.	No incluyas JavaScript modificado.
+5.	Al final, explica brevemente qué elementos visuales modificaste.
+Antes de modificar el código, analiza cómo está construido actualmente y conserva su funcionamiento original.
