@@ -22,7 +22,7 @@
 }
 
 body {
-  background-image: linear-gradient(rgba(10, 14, 23, 0.35), rgba(10, 14, 23, 0.35)), url('ciudad.jpg');
+  background-image: linear-gradient(rgba(10, 14, 23, 0.35), rgba(10, 14, 23, 0.35)), url('fondo2.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
